@@ -45,12 +45,13 @@
 <script type="text/javascript" src="https://brython.info/src/brython_stdlib.js"></script>
 
 <script src="https://brython.info/assets/header.brython.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ext-language_tools.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/theme-solarized_light.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/mode-python.min.js"></script>
-
+<!--    #1.4.13 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ext-language_tools.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-solarized_light.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/mode-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/keybinding-vscode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ext-searchbox.min.js"></script>
 
 <script type="text/python3" id="tests_editor">
 from browser import document as doc, window
@@ -185,6 +186,10 @@ try:
     editor = window.ace.edit("editor")
     editor.setTheme("ace/theme/solarized_light")
     editor.session.setMode("ace/mode/python")
+    try:
+        editor.setKeyboardHandler("ace/keyboard/vscode")
+    except:
+        print("error")
     editor.focus()
 
     editor.setOptions({
@@ -370,7 +375,7 @@ function makeShareCodeOriginal(){
     #show_js:hover,
     #share_code:hover,
     #run:hover{background-color: #3e8e41}
-    
+
 </style>
 </head>
 <body onload="brython()"></body>
