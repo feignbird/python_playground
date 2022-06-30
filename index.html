@@ -42,13 +42,69 @@
 <script type="text/javascript" src="https://brython.info/src/ast_to_js.js"></script>
 <script type="text/javascript" src="https://brython.info/src/symtable.js"></script>
 
-<script type="text/javascript" src="https://brython.info/src/brython_stdlib.js"></script>
+<!-- Extra added scripts -->
+<script type="text/javascript" src="https://brython.info/src/_aio.js"></script>
+<script type="text/javascript" src="https://brython.info/src/_ast.js"></script>
+<script type="text/javascript" src="https://brython.info/src/_io_classes.js"></script>
+<script type="text/javascript" src="https://brython.info/src/_json.js"></script>
+<script type="text/javascript" src="https://brython.info/src/_symtable.js"></script>
+<script type="text/javascript" src="https://brython.info/src/_webcomponent.js"></script>
+<script type="text/javascript" src="https://brython.info/src/_zlib_utils.js"></script>
 
-<script src="https://brython.info/assets/header.brython.js"></script>
+
+<script type="text/javascript" src="https://brython.info/src/brython_stdlib.js"></script>
+<script type="text/javascript" src="https://brython.info/assets/header.brython.js"></script>
 <!--    #1.4.13 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ace.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ext-language_tools.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-solarized_light.min.js"></script>
+
+<!-- Extra theme -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-ambiance.min.js" integrity="sha512-JSlcMPGsnCu53ixgQjR6qgTQNy/IzjibQob3GSP2JfZtd3naC3H6+NrOs1nDG8rsLulHYCIfBaXaU07G1PbR1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-chaos.min.js" integrity="sha512-gng6Q0uem/jJ3AClPDdG54IWM5jasTcXphnWUFrXPk2HNiM50BcA/4AbXKZUJq/Dy67Nj9muDVmzSf9dcs/Pbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-chrome.min.js" integrity="sha512-U6FGB8uDHjnYaZ97jiksMiooP4I+fZRFRtug4FgL9WPXHMEb3e5peKfn1+PQL3uAm7xbKJoykjr3OKAe6r7vgQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_day.min.js" integrity="sha512-9KP3394CVxylIxmyBlBE5iVG9KHMvG0N/PdAW0WHIl9HvTrerjkLOOX0REIuvZIYTyqtq8FVttEJy93yt2GxkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_night.min.js" integrity="sha512-mn5/3oX8CF+kTzMM9DmLz5uJcoX0BYDk8QhOahAxiU1He9mzq+vOPYW/NciT++83RPpd9hsUG67TWFM6NWlN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_night_low_color.min.js" integrity="sha512-Sdgjn+rf+KunOWi4bNmbG+YIfoVPKOlfpPw43Gwiqpzv3QdgM+Gn+KGNkAunnCX6Whz5SrGaYmsrcmgSSYyG9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-clouds.min.js" integrity="sha512-DFAc5wPckE9QPOvsL9xN1u/v9PSgTJzX9jlfJS5KBmbAL7O7BJaI90DE+3nHYLefYxUJ1S2HMo/AEORBk0p03w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-clouds_midnight.min.js" integrity="sha512-RLtJvALs1ztX1YlPKAWhRq6MOwYJHIWPjjTR8vv7ONl+iddc1aWrhYREs+inZ9zIDWlfQ2C2yKlxjwDCg0H5+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cobalt.min.js" integrity="sha512-TjedDDiCXUu5wgeSYjl1JloMqaBPVCmBQ0hZnn6SYfqaUFgkZ+zV80dP/zmkmOH+Afo/racOr4Rt4fNuHkPpyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-crimson_editor.min.js" integrity="sha512-JoyUdRvCLw4pj/ev4d1nmFN8pYs93GHOOhjMIwUyp4XvE3O5o+PodaoJKGw+wiEZBn1iqBwoIkaUsCVNVa0raQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dawn.min.js" integrity="sha512-38hwQeL0t4dI4yQBCJsiLQFI5dGZDul/4hwwElbXc/phKyXxN9GGpbjz3Ez4IJzXaQUfjFIIf1Me7eyUueezXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dracula.min.js" integrity="sha512-spJzhyfxwWqVa1Tab7js2JKLQD6V5Q1Bsd5QQCJ14b7uw4bOoIPSvR9skHgHNuf2c9AIWR28EzhqvCuc24hUnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dreamweaver.min.js" integrity="sha512-U9dkllGZH7vJrmGlVOO01tQn6aauDHyq/iAIxBgthu4OOI11FabQy0W1+R6chhTQ+kQ3UnJjfBkGLff6o+alZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-eclipse.min.js" integrity="sha512-eHbKqEJXmDRMHON3QGXnzeHr7nR3+pK0OuqswcDUBRE0r4NjYMpyrDEl8WOfWNVGws/mbxZtlyBgpiWobzNOVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-github.min.js" integrity="sha512-7k6si+5hoSDYPfRd8EdNaWCq5s4xMp+XFVmHg5FYHoXvk80DYFrNStvFZ1U68DpVjInm1Q305D6OU7YEz1Gb4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gob.min.js" integrity="sha512-dY/axIFDuXBT7V3A0+Ul9NiFDEBntM8XwEcKzcm2aC9kIyS9w8VfKRPOAI/CIeufLvepSCnB0V/jHt/Cs2ISQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox.min.js" integrity="sha512-BfNzIvpSwyAjSsj80qGqNMb5OZ6JMW2bUyAoCiNszCtJlZv2Dj6TxyeyOMHW9u202hn/01uhZjKBtNCC86um/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox_dark_hard.min.js" integrity="sha512-bsuteRBZNtk737VJwp2Y2vQzj9PmBr1WNq29cnW6Mfmww25+BA+FK5B8WIhZ4+wJk1W8ohEHJQocWZCQZuN1hQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox_light_hard.min.js" integrity="sha512-xvG4IYt4Tytp9X3hIGZwAuevx08/NDvBkTjUwrUomg94zRr3ZSdQzbRUjX4uY1LbYedCNwQPr/i+Y+4CL2ztAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-idle_fingers.min.js" integrity="sha512-o9KW+dC1Wz++I0hRKBhmHSzqQTmmHcmeVXYK7akysRMU0atC3ashKXYBTti8yVUpQGe9bz0eXjUddSXiBu1B0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-iplastic.min.js" integrity="sha512-BExe16qU5LHl4AJ65MEGKHRqmh8kJN7s7t9O5ob++/APYe8x8k0RwJzaU9HSVbVkvIudS2vDrJlhah4zkqy5tw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-katzenmilch.min.js" integrity="sha512-gLshsaMr2dtiv6dmMMqjgb03Z1xT1Q7Zw/LJqZy+r3TyJL6YcVo1neOh7g+5kaJCq1vioGjWb+R5TiWVH0M4gQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-kr_theme.min.js" integrity="sha512-0ZYSLAB7v7LUZ1YSwFAUQOmX79bcbBM7GqA1REicSLP4OIlEHVppKmqNA0CT2uwb1PnWtMdKZPphGCdNh0l7lA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-kuroir.min.js" integrity="sha512-xJomSmvc3lhWBtZTvnvRlKJz8uSVLn+DDR6p+9LToGBRbyRoatNRIxmYbIEq526QpDrihQ+nhXt5hbD4ozYzcA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-merbivore.min.js" integrity="sha512-OxXx3gODECseQALybmxMl/TnGlGcwPBrDuxsPJVXvaVTi+bBjISX5QZABPMxpJYmv1D76bgoTtOipa8EhV36xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-merbivore_soft.min.js" integrity="sha512-zG84ZToKPRvTnl2eTLks9y8KxkU7sRM4Qw1JURyaFCo980jxwgzjt0L9o4/KbBTQ9+n/9PFKZOcawqFHcGAlNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-mono_industrial.min.js" integrity="sha512-tT1duqXtLdMvdJ/MPtSKISFfjB/A911/TFU3RL+zn9bDC4xzUib2H1svYoE/HyOLNI/8xK0hUlV0J+bxrO597A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-monokai.min.js" integrity="sha512-wZYGbdk0giM73l8BLDNfSEziApAmH8DvXey6zNLG3QUgDeDsMAPm3FIdjhLwrGOWO0vdVHkVxeUzOBR0Hc/xBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-nord_dark.min.js" integrity="sha512-0pdZCOKlN4JHjr3KhhOctnBlutroJmIaJbc8tGf/MMBjlmO66vnvm9UVrf/ctRNgjuYBik8jtrQ38Z40sC35WQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-one_dark.min.js" integrity="sha512-DL7jU9qDTsdJtyh2Kqm/dZp9w5Kkb7eiwOH7jC8Z9qfyQIXCtc+YA6uVz2uOcutNt5+zVzOO5hDK6C1pYOnTmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-pastel_on_dark.min.js" integrity="sha512-vRQknUs+hkvtDPhAN410UVC0Ze2zDzrHydrnOC+6GszZwapUCRJG/T6cdUTgxHx4TwMluSvk2AZ3wCEav5S+dA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-solarized_dark.min.js" integrity="sha512-tZqenoVZQL39UFpJthlJCgwmVSVY1R8IAJoXQBoaWv3lfJT0rTW5B4At9UZUXEYIbhKEhjm0KOwZJZ1JXJ7nUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-sqlserver.min.js" integrity="sha512-5/Pr8klgzFtEe+UtAJ6x7r1N1FCvMM/z7iduB1HIz7YaOGZyRlaAXZGUSuU2bzTW7fSlvfFsiFIVBDyoEbvlJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-terminal.min.js" integrity="sha512-dMnRLUXSamNrNYyl4PUSCeWycTBHCs/AYzpZ7rR3DEJ8MiQYRGUr8OVecjXMTH9HWErhxD2NyYD7K33JPUOECg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-textmate.min.js" integrity="sha512-VE1d8sDypa2IvfFGVnil5k/xdGWtLTlHk/uM0ojHH8b2RRF75UeUBL9btDB8Hhe7ei0TT8NVuHFxWxh5NhdepQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow.min.js" integrity="sha512-xcuZ3JLD2hkA+O55cQYPCD6KF0ym4FF/eB63qapR4JS2n1krY1bVd5Iqbd/wt9M8F6TNvejO8WT+2INw+9utBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night.min.js" integrity="sha512-rpnNB4FBZTLJy1Vjk5/2A3nfJCBUOCFznS4Gth9qJIRZC7Ndx53XKbNDSmwpLZGvoOZoZEVQ1AkAj8KGnw1KKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_blue.min.js" integrity="sha512-mBogOfWoW3Wx772hOyXwLb2craiy+N9LYwmf8OXJA1PrSmO66cfw6FOpwyp1GirU5GHPqjKjH3WeVEMSNZEV4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_bright.min.js" integrity="sha512-AUwiMB/iZR8sueWaMSVChngsxj1Qx+pL9stRv87i+cO6vn4lNMOcZ8jpcQq+JZlqWz7nRGE7UueLApj5gBHp1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_eighties.min.js" integrity="sha512-jGK/1slk1uVzDeMM5GDHgLxHw13SSNvfrjlsmHfXc8pvzU/30rn0lFZr0dDFA35YafiggAQpcr57M39k7mNdSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-twilight.min.js" integrity="sha512-dFk7kcyT/ImbfIW3JcvxjjJ1ZqIxNfUbqn4QoYkkeZsp0h298RuPwy81fF1ZguJp4HbCz4ToDUhl3ajkCVAIBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-vibrant_ink.min.js" integrity="sha512-HgPqcuvmCP518uRwsT7trX9h2L4TLEWA8pvO3gvD65LByTXh3RxHDW7wA6tDXrbSFiB62/cF47Hsa4/Y+ibH6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-xcode.min.js" integrity="sha512-x7Tll5GOde0h/BOxk9HlqwOM0V7qnSk8NR7Qh7qqmD27cMRBlbNfFQFTZDlVsLSuwCr/7gtlfFf3lv59Qkkk8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/mode-python.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/keybinding-vscode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ext-searchbox.min.js"></script>
@@ -84,6 +140,18 @@ def get_device_type():
         return "computer"
 
 
+def theme_option_code(style = {}):
+    theme_list = ['ambiance', 'chaos', 'chrome', 'cloud9_day', 'cloud9_night', 'cloud9_night_low_color', 'clouds', 'clouds_midnight', 'cobalt', 
+    'crimson_editor', 'daw', 'dracula', 'dreamweaver', 'eclipse', 'github', 'gob', 'gruvbox', 'gruvbox_dark_hard', 'gruvbox_light_hard', 'idle_fingers', 
+    'iplastic', 'katzenmilch', 'kr_theme', 'kuroir', 'merbivore', 'merbivore_soft', 'mono_industrial', 'monoka', 'nord_dark', 'one_dark', 'pastel_on_dark', 
+    'solarized_dark', 'sqlserver', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue', 'tomorrow_night_bright', 'tomorrow_night_eighties', 
+    'twilight', 'vibrant_ink', 'xcode']
+    theme_select_ele = html.SELECT(id = "theme_select_input", style = style)
+    for theme in theme_list:
+        theme_select_ele <= html.OPTION(theme, value = "ace/theme/"+theme)
+    return theme_select_ele
+
+
 def make_structure_for_desktop_computers():
     table_ele = html.TABLE(id = "container")
     
@@ -96,11 +164,28 @@ def make_structure_for_desktop_computers():
     show_console_button = html.BUTTON("Python", id = "show_console")
     show_js_button = html.BUTTON("Javascript", id = "show_js")
     share_code_button = html.BUTTON('Share code', id = "share_code", onclick="copyUrl()")
-    
+
+    # font
+    increase_font = html.BUTTON('A+', id = "increase_font_size")
+    decrease_font = html.BUTTON('A-', id = "decrease_font_size")
+
+    #theme
+    change_theme = html.BUTTON("theme", id = "change_editor_theme")
+    theme_dropdown = theme_option_code(style = {'display':"none"})
+
     button_group_cell <= run_button
     button_group_cell <= show_console_button
     button_group_cell <= show_js_button
     button_group_cell <= share_code_button
+
+    # font buttons appended
+    button_group_cell <= increase_font
+    button_group_cell <= decrease_font
+
+    # theme button appended
+    button_group_cell <= change_theme
+    button_group_cell <= theme_dropdown
+
 
     tr_menu_buttons <= button_group_cell
     tr_menu_buttons <= empty_cells
@@ -126,21 +211,51 @@ def make_structure_for_desktop_computers():
 
 def make_structure_for_mobile_computers():
     table_ele = html.TABLE(id = "container", style={'width':"100%"})
-        
+    
     # first row
     tr_menu_buttons = html.TR()
     button_group_cell = html.TD()
     empty_cells = (html.TD() for x in range(2))
 
-    run_button = html.BUTTON(" ▶ Run", id = "run", style={'font-size':"40px"})
-    show_console_button = html.BUTTON("Python", id = "show_console", style = {'font-size': "40px"})
-    show_js_button = html.BUTTON("Javascript", id = "show_js", style = {'font-size': "40px"})
-    share_code_button = html.BUTTON('Share code', id = "share_code", onclick="copyUrl()", style = {'font-size': "40px"})
+    button_styles = {
+        "display": "inline-block",
+        "padding": "10px 18px",
+        "margin-right": "1%",
+        "margin-bottom": "1%",
+        "font-size": "35px",
+        "cursor": "pointer",
+        "text-align": "center",
+        "text-decoration": "none",
+        "outline": "none",
+        "color": "#fff",
+        "background-color": "#000000",
+        "border": "none",
+        "border-radius": "15px",
+        "box-shadow": "0 4px #999"
+    }
+
+    run_button = html.BUTTON(" ▶ Run", id = "run", style=button_styles)
+    show_console_button = html.BUTTON("Python", id = "show_console", style = button_styles)
+    show_js_button = html.BUTTON("Javascript", id = "show_js", style = button_styles)
+    share_code_button = html.BUTTON('Share code', id = "share_code", onclick="copyUrl()", style = button_styles)
+    # font
+    increase_font = html.BUTTON('A+', id = "increase_font_size", style = button_styles)
+    decrease_font = html.BUTTON('A-', id = "decrease_font_size", style = button_styles)
+
+    #theme
+    change_theme = html.BUTTON("theme", id = "change_editor_theme", style = button_styles)
+    theme_dropdown = theme_option_code(style = {'display':"none", 'font-size':"35px"})
 
     button_group_cell <= run_button
     button_group_cell <= show_console_button
     button_group_cell <= show_js_button
     button_group_cell <= share_code_button
+    # font buttons appended
+    button_group_cell <= increase_font
+    button_group_cell <= decrease_font
+    # theme
+    button_group_cell <= change_theme
+    button_group_cell <= theme_dropdown
 
     tr_menu_buttons <= button_group_cell
     tr_menu_buttons <= empty_cells
@@ -165,9 +280,11 @@ def make_structure_for_mobile_computers():
 
 if get_device_type() in ['android', 'iphone']:
     document.body <= make_structure_for_mobile_computers()
+    font_size = 30 # in pixels
     console.log("removed for mobile")
 else:
     document.body <= make_structure_for_desktop_computers()
+    font_size = 16 # in pixels
     console.log("removed for computer")
 
 
@@ -179,13 +296,12 @@ _s.style.height = '%spx' % int(_height * 0.85)
 
 
 
-
-
 has_ace = True
 try:
     editor = window.ace.edit("editor")
     editor.setTheme("ace/theme/solarized_light")
     editor.session.setMode("ace/mode/python")
+    editor.setFontSize(font_size)
     try:
         editor.setKeyboardHandler("ace/keyboard/vscode")
     except:
@@ -302,6 +418,34 @@ def show_js(ev):
 
 
 
+@bind("#increase_font_size", 'click')
+def increase_editor_font_size(e):
+    global font_size
+    if font_size >= 5 and font_size < 50:
+        editor.setFontSize(font_size+1)
+        font_size = font_size + 1
+    console.log("increased", font_size)
+
+
+@bind("#decrease_font_size", 'click')
+def decrease_editor_font_size(e):
+    global font_size
+    if font_size > 5:
+        editor.setFontSize(font_size-1)
+        font_size = font_size - 1
+    console.log("decreased", font_size)
+
+@bind("#change_editor_theme", 'click')
+def theme_dropdown_show(e):
+    if doc['theme_select_input'].style.display == "none":
+        doc['theme_select_input'].style.display = "inline"
+    else:
+        doc['theme_select_input'].style.display = "none"
+
+@bind("#theme_select_input", 'change')
+def theme_dropdown_show(e):
+    editor.setTheme(str(e.target.value).strip())
+
 # next functions are defined in editor.py
 doc['show_js'].bind('click', show_js)
 
@@ -344,12 +488,16 @@ function makeShareCodeOriginal(){
         background-color:darkgray;
     }
 
+    #change_editor_theme,
+    #increase_font_size,
+    #decrease_font_size,
     #show_console,
     #show_js,
     #share_code,
     #run {
         display: inline-block;
         padding: 10px 18px;
+        margin-right: 1%;
         font-size: 18px;
         cursor: pointer;
         text-align: center;
@@ -362,6 +510,9 @@ function makeShareCodeOriginal(){
         box-shadow: 0 4px #999;
     }
 
+    #change_editor_theme:active,
+    #increase_font_size:active,
+    #decrease_font_size:active,
     #show_console:active,
     #show_js:active,
     #share_code:active,
@@ -371,6 +522,9 @@ function makeShareCodeOriginal(){
         transform: translateY(2px);
     }
 
+    #change_editor_theme:hover,
+    #increase_font_size:hover,
+    #decrease_font_size:hover   ,
     #show_console:hover,
     #show_js:hover,
     #share_code:hover,
