@@ -374,8 +374,8 @@ def run(*args):
     src = editor.getValue()
 
     t0 = time.perf_counter()
-    if "import turtle" in src:
-        src = 'from browser import document\ntry:\n\tdocument[\'turtle-canvas-wrapper\'].remove()\n\tfrom turtle import restart\n\trestart()\nexcept:\n\tpass\n\n' + src
+    #if "import turtle" in src:
+    #    src = 'from browser import document\ntry:\n\tdocument[\'turtle-canvas-wrapper\'].remove()\n\tfrom turtle import restart\n\trestart()\nexcept:\n\tpass\n\n' + src
     try:
         ns = {'__name__':'__main__'}
         exec(src, ns)
