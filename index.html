@@ -329,7 +329,8 @@ def reset():
         url_encoded_data_str = initial_url_state.split("#")[1]
         url_encoded_data_str = url_encoded_data_str.strip().strip("data=")
         data_str = window.decodeURIComponent(url_encoded_data_str.replace("+", " "))
-        code_dict = dict(ast.literal_eval(data_str))
+        #code_dict = dict(ast.literal_eval(data_str))
+        code_dict = json.loads(data_str)
         current_code = code_dict['code']
         editor.setValue(current_code)
     else:
