@@ -1,125 +1,491 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#000000"/>
-    <meta name="keywords" content="Software Development, Startup, Technology, Engineer, Mobile Apps, Web Apps"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Online python playground made using brython, Once loaded can also run in offline mode without internet."/>
-    <meta itemprop="name" content="Software for Startups | Attentionverse | The Coder Live"/>
-    <meta itemprop="description" content="pyground is the product of attentionverse. We love code. We love startups. We love transparency. On-time delivery, quality code with transparent communication."/>
-    <meta itemprop="image" content="https://attentionverse-data.s3.ap-south-1.amazonaws.com/attentionverse_logo.jpeg"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="keywords"
+      content="Software Development, Startup, Technology, Engineer, Mobile Apps, Web Apps"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Online python playground made using brython, Once loaded can also run in offline mode without internet."
+    />
+    <meta
+      itemprop="name"
+      content="Software for Startups | Attentionverse | The Coder Live"
+    />
+    <meta
+      itemprop="description"
+      content="pyground is the product of attentionverse. We love code. We love startups. We love transparency. On-time delivery, quality code with transparent communication."
+    />
+    <meta
+      itemprop="image"
+      content="https://attentionverse-data.s3.ap-south-1.amazonaws.com/attentionverse_logo.jpeg"
+    />
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="Python Playground" />
     <meta property="og:type" content="python interpreter" />
-    <meta property="og:description" content="Online python playground made using brython, Once loaded can also run in offline mode without internet." />
+    <meta
+      property="og:description"
+      content="Online python playground made using brython, Once loaded can also run in offline mode without internet."
+    />
     <meta property="og:url" content="https://pyground.feignbird.live/" />
     <meta property="og:site_name" content="pyground.feignbird.live" />
 
-
     <title>Python Playground | Attentionverse</title>
-    <link rel="icon" type="image/x-icon" href="https://attentionverse-data.s3.ap-south-1.amazonaws.com/attentionverse_logo.ico">
-    <link rel="icon" href="https://attentionverse-data.s3.ap-south-1.amazonaws.com/attentionverse_logo.jpeg"/>
-    <link rel="stylesheet" href="https://www.brython.info/tests/console.css">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://attentionverse-data.s3.ap-south-1.amazonaws.com/attentionverse_logo.ico"
+    />
+    <link
+      rel="icon"
+      href="https://attentionverse-data.s3.ap-south-1.amazonaws.com/attentionverse_logo.jpeg"
+    />
+    <link rel="stylesheet" href="https://www.brython.info/tests/console.css" />
 
-    <script type="text/javascript" src="https://brython.info/src/brython_builtins.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/builtins_docstrings.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/version_info.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/python_tokenizer.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_ast.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py2js.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/loaders.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_object.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_type.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_utils.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_sort.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_builtin_functions.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_exceptions.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_range_slice.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_bytes.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_set.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/js_objects.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/stdlib_paths.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_import.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/unicode_data.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_string.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_int.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_long_int.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_float.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_complex.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_dict.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_list.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_generator.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_dom.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/py_pattern_matching.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/builtin_modules.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/async.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/ast_to_js.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/symtable.js"></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/brython_builtins.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/builtins_docstrings.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/version_info.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/python_tokenizer.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_ast.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py2js.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/loaders.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_object.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_type.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_utils.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_sort.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_builtin_functions.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_exceptions.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_range_slice.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_bytes.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_set.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/js_objects.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/stdlib_paths.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_import.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/unicode_data.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_string.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_int.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_long_int.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_float.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_complex.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_dict.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_list.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_generator.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_dom.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/py_pattern_matching.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/builtin_modules.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/async.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/ast_to_js.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/symtable.js"
+    ></script>
 
     <!-- Extra added scripts -->
-    <script type="text/javascript" src="https://brython.info/src/_aio.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/_ast.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/_io_classes.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/_json.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/_symtable.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/_webcomponent.js"></script>
-    <script type="text/javascript" src="https://brython.info/src/_zlib_utils.js"></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/_aio.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/_ast.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/_io_classes.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/_json.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/_symtable.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/_webcomponent.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/_zlib_utils.js"
+    ></script>
 
-
-    <script type="text/javascript" src="https://brython.info/src/brython_stdlib.js"></script>
-    <script type="text/javascript" src="https://brython.info/assets/header.brython.js"></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/src/brython_stdlib.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://brython.info/assets/header.brython.js"
+    ></script>
     <!--    #1.4.13 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ace.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ext-language_tools.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-solarized_light.min.js"></script>
 
     <!-- Extra theme -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-ambiance.min.js" integrity="sha512-JSlcMPGsnCu53ixgQjR6qgTQNy/IzjibQob3GSP2JfZtd3naC3H6+NrOs1nDG8rsLulHYCIfBaXaU07G1PbR1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-chaos.min.js" integrity="sha512-gng6Q0uem/jJ3AClPDdG54IWM5jasTcXphnWUFrXPk2HNiM50BcA/4AbXKZUJq/Dy67Nj9muDVmzSf9dcs/Pbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-chrome.min.js" integrity="sha512-U6FGB8uDHjnYaZ97jiksMiooP4I+fZRFRtug4FgL9WPXHMEb3e5peKfn1+PQL3uAm7xbKJoykjr3OKAe6r7vgQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_day.min.js" integrity="sha512-9KP3394CVxylIxmyBlBE5iVG9KHMvG0N/PdAW0WHIl9HvTrerjkLOOX0REIuvZIYTyqtq8FVttEJy93yt2GxkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_night.min.js" integrity="sha512-mn5/3oX8CF+kTzMM9DmLz5uJcoX0BYDk8QhOahAxiU1He9mzq+vOPYW/NciT++83RPpd9hsUG67TWFM6NWlN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_night_low_color.min.js" integrity="sha512-Sdgjn+rf+KunOWi4bNmbG+YIfoVPKOlfpPw43Gwiqpzv3QdgM+Gn+KGNkAunnCX6Whz5SrGaYmsrcmgSSYyG9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-clouds.min.js" integrity="sha512-DFAc5wPckE9QPOvsL9xN1u/v9PSgTJzX9jlfJS5KBmbAL7O7BJaI90DE+3nHYLefYxUJ1S2HMo/AEORBk0p03w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-clouds_midnight.min.js" integrity="sha512-RLtJvALs1ztX1YlPKAWhRq6MOwYJHIWPjjTR8vv7ONl+iddc1aWrhYREs+inZ9zIDWlfQ2C2yKlxjwDCg0H5+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cobalt.min.js" integrity="sha512-TjedDDiCXUu5wgeSYjl1JloMqaBPVCmBQ0hZnn6SYfqaUFgkZ+zV80dP/zmkmOH+Afo/racOr4Rt4fNuHkPpyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-crimson_editor.min.js" integrity="sha512-JoyUdRvCLw4pj/ev4d1nmFN8pYs93GHOOhjMIwUyp4XvE3O5o+PodaoJKGw+wiEZBn1iqBwoIkaUsCVNVa0raQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dawn.min.js" integrity="sha512-38hwQeL0t4dI4yQBCJsiLQFI5dGZDul/4hwwElbXc/phKyXxN9GGpbjz3Ez4IJzXaQUfjFIIf1Me7eyUueezXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dracula.min.js" integrity="sha512-spJzhyfxwWqVa1Tab7js2JKLQD6V5Q1Bsd5QQCJ14b7uw4bOoIPSvR9skHgHNuf2c9AIWR28EzhqvCuc24hUnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dreamweaver.min.js" integrity="sha512-U9dkllGZH7vJrmGlVOO01tQn6aauDHyq/iAIxBgthu4OOI11FabQy0W1+R6chhTQ+kQ3UnJjfBkGLff6o+alZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-eclipse.min.js" integrity="sha512-eHbKqEJXmDRMHON3QGXnzeHr7nR3+pK0OuqswcDUBRE0r4NjYMpyrDEl8WOfWNVGws/mbxZtlyBgpiWobzNOVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-github.min.js" integrity="sha512-7k6si+5hoSDYPfRd8EdNaWCq5s4xMp+XFVmHg5FYHoXvk80DYFrNStvFZ1U68DpVjInm1Q305D6OU7YEz1Gb4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gob.min.js" integrity="sha512-dY/axIFDuXBT7V3A0+Ul9NiFDEBntM8XwEcKzcm2aC9kIyS9w8VfKRPOAI/CIeufLvepSCnB0V/jHt/Cs2ISQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox.min.js" integrity="sha512-BfNzIvpSwyAjSsj80qGqNMb5OZ6JMW2bUyAoCiNszCtJlZv2Dj6TxyeyOMHW9u202hn/01uhZjKBtNCC86um/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox_dark_hard.min.js" integrity="sha512-bsuteRBZNtk737VJwp2Y2vQzj9PmBr1WNq29cnW6Mfmww25+BA+FK5B8WIhZ4+wJk1W8ohEHJQocWZCQZuN1hQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox_light_hard.min.js" integrity="sha512-xvG4IYt4Tytp9X3hIGZwAuevx08/NDvBkTjUwrUomg94zRr3ZSdQzbRUjX4uY1LbYedCNwQPr/i+Y+4CL2ztAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-idle_fingers.min.js" integrity="sha512-o9KW+dC1Wz++I0hRKBhmHSzqQTmmHcmeVXYK7akysRMU0atC3ashKXYBTti8yVUpQGe9bz0eXjUddSXiBu1B0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-iplastic.min.js" integrity="sha512-BExe16qU5LHl4AJ65MEGKHRqmh8kJN7s7t9O5ob++/APYe8x8k0RwJzaU9HSVbVkvIudS2vDrJlhah4zkqy5tw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-katzenmilch.min.js" integrity="sha512-gLshsaMr2dtiv6dmMMqjgb03Z1xT1Q7Zw/LJqZy+r3TyJL6YcVo1neOh7g+5kaJCq1vioGjWb+R5TiWVH0M4gQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-kr_theme.min.js" integrity="sha512-0ZYSLAB7v7LUZ1YSwFAUQOmX79bcbBM7GqA1REicSLP4OIlEHVppKmqNA0CT2uwb1PnWtMdKZPphGCdNh0l7lA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-kuroir.min.js" integrity="sha512-xJomSmvc3lhWBtZTvnvRlKJz8uSVLn+DDR6p+9LToGBRbyRoatNRIxmYbIEq526QpDrihQ+nhXt5hbD4ozYzcA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-merbivore.min.js" integrity="sha512-OxXx3gODECseQALybmxMl/TnGlGcwPBrDuxsPJVXvaVTi+bBjISX5QZABPMxpJYmv1D76bgoTtOipa8EhV36xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-merbivore_soft.min.js" integrity="sha512-zG84ZToKPRvTnl2eTLks9y8KxkU7sRM4Qw1JURyaFCo980jxwgzjt0L9o4/KbBTQ9+n/9PFKZOcawqFHcGAlNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-mono_industrial.min.js" integrity="sha512-tT1duqXtLdMvdJ/MPtSKISFfjB/A911/TFU3RL+zn9bDC4xzUib2H1svYoE/HyOLNI/8xK0hUlV0J+bxrO597A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-monokai.min.js" integrity="sha512-wZYGbdk0giM73l8BLDNfSEziApAmH8DvXey6zNLG3QUgDeDsMAPm3FIdjhLwrGOWO0vdVHkVxeUzOBR0Hc/xBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-nord_dark.min.js" integrity="sha512-0pdZCOKlN4JHjr3KhhOctnBlutroJmIaJbc8tGf/MMBjlmO66vnvm9UVrf/ctRNgjuYBik8jtrQ38Z40sC35WQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-one_dark.min.js" integrity="sha512-DL7jU9qDTsdJtyh2Kqm/dZp9w5Kkb7eiwOH7jC8Z9qfyQIXCtc+YA6uVz2uOcutNt5+zVzOO5hDK6C1pYOnTmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-pastel_on_dark.min.js" integrity="sha512-vRQknUs+hkvtDPhAN410UVC0Ze2zDzrHydrnOC+6GszZwapUCRJG/T6cdUTgxHx4TwMluSvk2AZ3wCEav5S+dA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-solarized_dark.min.js" integrity="sha512-tZqenoVZQL39UFpJthlJCgwmVSVY1R8IAJoXQBoaWv3lfJT0rTW5B4At9UZUXEYIbhKEhjm0KOwZJZ1JXJ7nUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-sqlserver.min.js" integrity="sha512-5/Pr8klgzFtEe+UtAJ6x7r1N1FCvMM/z7iduB1HIz7YaOGZyRlaAXZGUSuU2bzTW7fSlvfFsiFIVBDyoEbvlJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-terminal.min.js" integrity="sha512-dMnRLUXSamNrNYyl4PUSCeWycTBHCs/AYzpZ7rR3DEJ8MiQYRGUr8OVecjXMTH9HWErhxD2NyYD7K33JPUOECg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-textmate.min.js" integrity="sha512-VE1d8sDypa2IvfFGVnil5k/xdGWtLTlHk/uM0ojHH8b2RRF75UeUBL9btDB8Hhe7ei0TT8NVuHFxWxh5NhdepQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow.min.js" integrity="sha512-xcuZ3JLD2hkA+O55cQYPCD6KF0ym4FF/eB63qapR4JS2n1krY1bVd5Iqbd/wt9M8F6TNvejO8WT+2INw+9utBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night.min.js" integrity="sha512-rpnNB4FBZTLJy1Vjk5/2A3nfJCBUOCFznS4Gth9qJIRZC7Ndx53XKbNDSmwpLZGvoOZoZEVQ1AkAj8KGnw1KKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_blue.min.js" integrity="sha512-mBogOfWoW3Wx772hOyXwLb2craiy+N9LYwmf8OXJA1PrSmO66cfw6FOpwyp1GirU5GHPqjKjH3WeVEMSNZEV4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_bright.min.js" integrity="sha512-AUwiMB/iZR8sueWaMSVChngsxj1Qx+pL9stRv87i+cO6vn4lNMOcZ8jpcQq+JZlqWz7nRGE7UueLApj5gBHp1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_eighties.min.js" integrity="sha512-jGK/1slk1uVzDeMM5GDHgLxHw13SSNvfrjlsmHfXc8pvzU/30rn0lFZr0dDFA35YafiggAQpcr57M39k7mNdSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-twilight.min.js" integrity="sha512-dFk7kcyT/ImbfIW3JcvxjjJ1ZqIxNfUbqn4QoYkkeZsp0h298RuPwy81fF1ZguJp4HbCz4ToDUhl3ajkCVAIBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-vibrant_ink.min.js" integrity="sha512-HgPqcuvmCP518uRwsT7trX9h2L4TLEWA8pvO3gvD65LByTXh3RxHDW7wA6tDXrbSFiB62/cF47Hsa4/Y+ibH6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-xcode.min.js" integrity="sha512-x7Tll5GOde0h/BOxk9HlqwOM0V7qnSk8NR7Qh7qqmD27cMRBlbNfFQFTZDlVsLSuwCr/7gtlfFf3lv59Qkkk8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-ambiance.min.js"
+      integrity="sha512-JSlcMPGsnCu53ixgQjR6qgTQNy/IzjibQob3GSP2JfZtd3naC3H6+NrOs1nDG8rsLulHYCIfBaXaU07G1PbR1g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-chaos.min.js"
+      integrity="sha512-gng6Q0uem/jJ3AClPDdG54IWM5jasTcXphnWUFrXPk2HNiM50BcA/4AbXKZUJq/Dy67Nj9muDVmzSf9dcs/Pbg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-chrome.min.js"
+      integrity="sha512-U6FGB8uDHjnYaZ97jiksMiooP4I+fZRFRtug4FgL9WPXHMEb3e5peKfn1+PQL3uAm7xbKJoykjr3OKAe6r7vgQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_day.min.js"
+      integrity="sha512-9KP3394CVxylIxmyBlBE5iVG9KHMvG0N/PdAW0WHIl9HvTrerjkLOOX0REIuvZIYTyqtq8FVttEJy93yt2GxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_night.min.js"
+      integrity="sha512-mn5/3oX8CF+kTzMM9DmLz5uJcoX0BYDk8QhOahAxiU1He9mzq+vOPYW/NciT++83RPpd9hsUG67TWFM6NWlN2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cloud9_night_low_color.min.js"
+      integrity="sha512-Sdgjn+rf+KunOWi4bNmbG+YIfoVPKOlfpPw43Gwiqpzv3QdgM+Gn+KGNkAunnCX6Whz5SrGaYmsrcmgSSYyG9w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-clouds.min.js"
+      integrity="sha512-DFAc5wPckE9QPOvsL9xN1u/v9PSgTJzX9jlfJS5KBmbAL7O7BJaI90DE+3nHYLefYxUJ1S2HMo/AEORBk0p03w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-clouds_midnight.min.js"
+      integrity="sha512-RLtJvALs1ztX1YlPKAWhRq6MOwYJHIWPjjTR8vv7ONl+iddc1aWrhYREs+inZ9zIDWlfQ2C2yKlxjwDCg0H5+A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-cobalt.min.js"
+      integrity="sha512-TjedDDiCXUu5wgeSYjl1JloMqaBPVCmBQ0hZnn6SYfqaUFgkZ+zV80dP/zmkmOH+Afo/racOr4Rt4fNuHkPpyQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-crimson_editor.min.js"
+      integrity="sha512-JoyUdRvCLw4pj/ev4d1nmFN8pYs93GHOOhjMIwUyp4XvE3O5o+PodaoJKGw+wiEZBn1iqBwoIkaUsCVNVa0raQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dawn.min.js"
+      integrity="sha512-38hwQeL0t4dI4yQBCJsiLQFI5dGZDul/4hwwElbXc/phKyXxN9GGpbjz3Ez4IJzXaQUfjFIIf1Me7eyUueezXw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dracula.min.js"
+      integrity="sha512-spJzhyfxwWqVa1Tab7js2JKLQD6V5Q1Bsd5QQCJ14b7uw4bOoIPSvR9skHgHNuf2c9AIWR28EzhqvCuc24hUnA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-dreamweaver.min.js"
+      integrity="sha512-U9dkllGZH7vJrmGlVOO01tQn6aauDHyq/iAIxBgthu4OOI11FabQy0W1+R6chhTQ+kQ3UnJjfBkGLff6o+alZA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-eclipse.min.js"
+      integrity="sha512-eHbKqEJXmDRMHON3QGXnzeHr7nR3+pK0OuqswcDUBRE0r4NjYMpyrDEl8WOfWNVGws/mbxZtlyBgpiWobzNOVw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-github.min.js"
+      integrity="sha512-7k6si+5hoSDYPfRd8EdNaWCq5s4xMp+XFVmHg5FYHoXvk80DYFrNStvFZ1U68DpVjInm1Q305D6OU7YEz1Gb4Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gob.min.js"
+      integrity="sha512-dY/axIFDuXBT7V3A0+Ul9NiFDEBntM8XwEcKzcm2aC9kIyS9w8VfKRPOAI/CIeufLvepSCnB0V/jHt/Cs2ISQg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox.min.js"
+      integrity="sha512-BfNzIvpSwyAjSsj80qGqNMb5OZ6JMW2bUyAoCiNszCtJlZv2Dj6TxyeyOMHW9u202hn/01uhZjKBtNCC86um/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox_dark_hard.min.js"
+      integrity="sha512-bsuteRBZNtk737VJwp2Y2vQzj9PmBr1WNq29cnW6Mfmww25+BA+FK5B8WIhZ4+wJk1W8ohEHJQocWZCQZuN1hQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-gruvbox_light_hard.min.js"
+      integrity="sha512-xvG4IYt4Tytp9X3hIGZwAuevx08/NDvBkTjUwrUomg94zRr3ZSdQzbRUjX4uY1LbYedCNwQPr/i+Y+4CL2ztAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-idle_fingers.min.js"
+      integrity="sha512-o9KW+dC1Wz++I0hRKBhmHSzqQTmmHcmeVXYK7akysRMU0atC3ashKXYBTti8yVUpQGe9bz0eXjUddSXiBu1B0A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-iplastic.min.js"
+      integrity="sha512-BExe16qU5LHl4AJ65MEGKHRqmh8kJN7s7t9O5ob++/APYe8x8k0RwJzaU9HSVbVkvIudS2vDrJlhah4zkqy5tw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-katzenmilch.min.js"
+      integrity="sha512-gLshsaMr2dtiv6dmMMqjgb03Z1xT1Q7Zw/LJqZy+r3TyJL6YcVo1neOh7g+5kaJCq1vioGjWb+R5TiWVH0M4gQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-kr_theme.min.js"
+      integrity="sha512-0ZYSLAB7v7LUZ1YSwFAUQOmX79bcbBM7GqA1REicSLP4OIlEHVppKmqNA0CT2uwb1PnWtMdKZPphGCdNh0l7lA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-kuroir.min.js"
+      integrity="sha512-xJomSmvc3lhWBtZTvnvRlKJz8uSVLn+DDR6p+9LToGBRbyRoatNRIxmYbIEq526QpDrihQ+nhXt5hbD4ozYzcA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-merbivore.min.js"
+      integrity="sha512-OxXx3gODECseQALybmxMl/TnGlGcwPBrDuxsPJVXvaVTi+bBjISX5QZABPMxpJYmv1D76bgoTtOipa8EhV36xw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-merbivore_soft.min.js"
+      integrity="sha512-zG84ZToKPRvTnl2eTLks9y8KxkU7sRM4Qw1JURyaFCo980jxwgzjt0L9o4/KbBTQ9+n/9PFKZOcawqFHcGAlNA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-mono_industrial.min.js"
+      integrity="sha512-tT1duqXtLdMvdJ/MPtSKISFfjB/A911/TFU3RL+zn9bDC4xzUib2H1svYoE/HyOLNI/8xK0hUlV0J+bxrO597A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-monokai.min.js"
+      integrity="sha512-wZYGbdk0giM73l8BLDNfSEziApAmH8DvXey6zNLG3QUgDeDsMAPm3FIdjhLwrGOWO0vdVHkVxeUzOBR0Hc/xBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-nord_dark.min.js"
+      integrity="sha512-0pdZCOKlN4JHjr3KhhOctnBlutroJmIaJbc8tGf/MMBjlmO66vnvm9UVrf/ctRNgjuYBik8jtrQ38Z40sC35WQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-one_dark.min.js"
+      integrity="sha512-DL7jU9qDTsdJtyh2Kqm/dZp9w5Kkb7eiwOH7jC8Z9qfyQIXCtc+YA6uVz2uOcutNt5+zVzOO5hDK6C1pYOnTmQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-pastel_on_dark.min.js"
+      integrity="sha512-vRQknUs+hkvtDPhAN410UVC0Ze2zDzrHydrnOC+6GszZwapUCRJG/T6cdUTgxHx4TwMluSvk2AZ3wCEav5S+dA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-solarized_dark.min.js"
+      integrity="sha512-tZqenoVZQL39UFpJthlJCgwmVSVY1R8IAJoXQBoaWv3lfJT0rTW5B4At9UZUXEYIbhKEhjm0KOwZJZ1JXJ7nUQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-sqlserver.min.js"
+      integrity="sha512-5/Pr8klgzFtEe+UtAJ6x7r1N1FCvMM/z7iduB1HIz7YaOGZyRlaAXZGUSuU2bzTW7fSlvfFsiFIVBDyoEbvlJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-terminal.min.js"
+      integrity="sha512-dMnRLUXSamNrNYyl4PUSCeWycTBHCs/AYzpZ7rR3DEJ8MiQYRGUr8OVecjXMTH9HWErhxD2NyYD7K33JPUOECg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-textmate.min.js"
+      integrity="sha512-VE1d8sDypa2IvfFGVnil5k/xdGWtLTlHk/uM0ojHH8b2RRF75UeUBL9btDB8Hhe7ei0TT8NVuHFxWxh5NhdepQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow.min.js"
+      integrity="sha512-xcuZ3JLD2hkA+O55cQYPCD6KF0ym4FF/eB63qapR4JS2n1krY1bVd5Iqbd/wt9M8F6TNvejO8WT+2INw+9utBQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night.min.js"
+      integrity="sha512-rpnNB4FBZTLJy1Vjk5/2A3nfJCBUOCFznS4Gth9qJIRZC7Ndx53XKbNDSmwpLZGvoOZoZEVQ1AkAj8KGnw1KKw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_blue.min.js"
+      integrity="sha512-mBogOfWoW3Wx772hOyXwLb2craiy+N9LYwmf8OXJA1PrSmO66cfw6FOpwyp1GirU5GHPqjKjH3WeVEMSNZEV4w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_bright.min.js"
+      integrity="sha512-AUwiMB/iZR8sueWaMSVChngsxj1Qx+pL9stRv87i+cO6vn4lNMOcZ8jpcQq+JZlqWz7nRGE7UueLApj5gBHp1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-tomorrow_night_eighties.min.js"
+      integrity="sha512-jGK/1slk1uVzDeMM5GDHgLxHw13SSNvfrjlsmHfXc8pvzU/30rn0lFZr0dDFA35YafiggAQpcr57M39k7mNdSA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-twilight.min.js"
+      integrity="sha512-dFk7kcyT/ImbfIW3JcvxjjJ1ZqIxNfUbqn4QoYkkeZsp0h298RuPwy81fF1ZguJp4HbCz4ToDUhl3ajkCVAIBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-vibrant_ink.min.js"
+      integrity="sha512-HgPqcuvmCP518uRwsT7trX9h2L4TLEWA8pvO3gvD65LByTXh3RxHDW7wA6tDXrbSFiB62/cF47Hsa4/Y+ibH6w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/theme-xcode.min.js"
+      integrity="sha512-x7Tll5GOde0h/BOxk9HlqwOM0V7qnSk8NR7Qh7qqmD27cMRBlbNfFQFTZDlVsLSuwCr/7gtlfFf3lv59Qkkk8A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/mode-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/keybinding-vscode.min.js"></script>
@@ -156,10 +522,10 @@ def get_device_type():
 
 
 def theme_option_code(style = {}):
-    theme_list = ['ambiance', 'chaos', 'chrome', 'cloud9_day', 'cloud9_night', 'cloud9_night_low_color', 'clouds', 'clouds_midnight', 'cobalt', 
-    'crimson_editor', 'daw', 'dracula', 'dreamweaver', 'eclipse', 'github', 'gob', 'gruvbox', 'gruvbox_dark_hard', 'gruvbox_light_hard', 'idle_fingers', 
-    'iplastic', 'katzenmilch', 'kr_theme', 'kuroir', 'merbivore', 'merbivore_soft', 'mono_industrial', 'monoka', 'nord_dark', 'one_dark', 'pastel_on_dark', 
-    'solarized_dark', 'sqlserver', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue', 'tomorrow_night_bright', 'tomorrow_night_eighties', 
+    theme_list = ['ambiance', 'chaos', 'chrome', 'cloud9_day', 'cloud9_night', 'cloud9_night_low_color', 'clouds', 'clouds_midnight', 'cobalt',
+    'crimson_editor', 'daw', 'dracula', 'dreamweaver', 'eclipse', 'github', 'gob', 'gruvbox', 'gruvbox_dark_hard', 'gruvbox_light_hard', 'idle_fingers',
+    'iplastic', 'katzenmilch', 'kr_theme', 'kuroir', 'merbivore', 'merbivore_soft', 'mono_industrial', 'monoka', 'nord_dark', 'one_dark', 'pastel_on_dark',
+    'solarized_dark', 'sqlserver', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue', 'tomorrow_night_bright', 'tomorrow_night_eighties',
     'twilight', 'vibrant_ink', 'xcode']
     theme_select_ele = html.SELECT(id = "theme_select_input", style = style)
     for theme in theme_list:
@@ -168,10 +534,10 @@ def theme_option_code(style = {}):
 
 
 
-def make_structure_for_desktop_computers():    
+def make_structure_for_desktop_computers():
     tr_menu_buttons = html.DIV(id = "fixed_button_row")
     button_wrapper = html.DIV()
-    
+
     run_button = html.BUTTON(" ▶ Run", id = "run")
 #    show_console_button = html.BUTTON("Python", id = "show_console")
 #    show_js_button = html.BUTTON("Javascript", id = "show_js")
@@ -196,7 +562,7 @@ def make_structure_for_desktop_computers():
 
     document.body.appendChild(tr_menu_buttons)
 
-    table_ele = html.TABLE(id = "container")    
+    table_ele = html.TABLE(id = "container")
     # second row
     tr_editor_area = html.TR()
     editor_cell = html.TD((html.DIV(id = 'editor', style={"width":"100%"})), id = "left")
@@ -217,7 +583,7 @@ def make_structure_for_desktop_computers():
 
 def make_structure_for_mobile_computers():
     table_ele = html.TABLE(id = "container", style={'width':"100%"})
-    
+
     # first row
     tr_menu_buttons = html.TR()
     button_group_cell = html.TD()
@@ -269,7 +635,7 @@ def make_structure_for_mobile_computers():
 
     # second row
     editor_row = html.TR(html.TD((html.DIV(id = 'editor', style={'width':"100%", 'font-size':"40px"})), id='left', style = {'height':"49%"}, colspan = "3"))
-    
+
     # third row
     separator_row = html.TR(html.TD(id='separator', style={'height':"1%"}, colspan = "3"))
 
@@ -313,9 +679,9 @@ try:
     editor.focus()
 
     editor.setOptions({
-     'enableLiveAutocompletion': True,
-     'highlightActiveLine': False,
-     'highlightSelectedWord': True
+    'enableLiveAutocompletion': True,
+    'highlightActiveLine': False,
+    'highlightSelectedWord': True
     })
 except:
     from browser import html
@@ -337,7 +703,7 @@ current_code = "for x in range(10):\n\tprint(x)"
 
 def reset():
     global current_code
-    initial_url_state = window.location.href 
+    initial_url_state = window.location.href
     if "?code" in document.query:
         code = document.query.getlist("code")[0]
         editor.setValue(code)
@@ -459,44 +825,43 @@ reset()
     </script>
 
     <script>
-function run_js(){
-    var cons = document.getElementById("console")
-    var jscode = cons.value
-    var t0 = (new Date()).getTime()
-    eval(jscode)
-    var t1 = (new Date()).getTime()
-    console.log("Javascript code run in "+(t1-t0)+" ms")
-}
+      function run_js() {
+        var cons = document.getElementById("console");
+        var jscode = cons.value;
+        var t0 = new Date().getTime();
+        eval(jscode);
+        var t1 = new Date().getTime();
+        console.log("Javascript code run in " + (t1 - t0) + " ms");
+      }
 
-function copyUrl(){
-    var text = window.location.href;
-    var elem = document.createElement("textarea");
-    document.body.appendChild(elem);
-    elem.value = text;
-    elem.select();
-    document.execCommand("copy");
-    document.body.removeChild(elem);
-    document.getElementById('share_code').innerHTML = "Link copied";
-    setTimeout(makeShareCodeOriginal, 3000)
-}
-function makeShareCodeOriginal(){
-    document.getElementById("share_code").innerHTML = "Share code";
-}
-
-</script>
+      function copyUrl() {
+        var text = window.location.href;
+        var elem = document.createElement("textarea");
+        document.body.appendChild(elem);
+        elem.value = text;
+        elem.select();
+        document.execCommand("copy");
+        document.body.removeChild(elem);
+        document.getElementById("share_code").innerHTML = "Link copied";
+        setTimeout(makeShareCodeOriginal, 3000);
+      }
+      function makeShareCodeOriginal() {
+        document.getElementById("share_code").innerHTML = "Share code";
+      }
+    </script>
 
     <style>
-    body{
-        background-color:darkgray;
-    }
+      body {
+        background-color: darkgray;
+      }
 
-    #change_editor_theme,
-    #increase_font_size,
-    #decrease_font_size,
-    #show_console,
-    #show_js,
-    #share_code,
-    #run {
+      #change_editor_theme,
+      #increase_font_size,
+      #decrease_font_size,
+      #show_console,
+      #show_js,
+      #share_code,
+      #run {
         display: inline-block;
         padding: 10px 18px;
         margin-right: 1%;
@@ -510,37 +875,38 @@ function makeShareCodeOriginal(){
         border: none;
         border-radius: 15px;
         box-shadow: 0 4px #999;
-    }
+      }
 
-    #change_editor_theme:active,
-    #increase_font_size:active,
-    #decrease_font_size:active,
-    #show_console:active,
-    #show_js:active,
-    #share_code:active,
-    #run:active{
+      #change_editor_theme:active,
+      #increase_font_size:active,
+      #decrease_font_size:active,
+      #show_console:active,
+      #show_js:active,
+      #share_code:active,
+      #run:active {
         background-color: #3e8e41;
         box-shadow: 0 2px #666;
         transform: translateY(2px);
-    }
+      }
 
-    #change_editor_theme:hover,
-    #increase_font_size:hover,
-    #decrease_font_size:hover   ,
-    #show_console:hover,
-    #show_js:hover,
-    #share_code:hover,
-    #run:hover{background-color: #3e8e41}
+      #change_editor_theme:hover,
+      #increase_font_size:hover,
+      #decrease_font_size:hover,
+      #show_console:hover,
+      #show_js:hover,
+      #share_code:hover,
+      #run:hover {
+        background-color: #3e8e41;
+      }
 
-    #fixed_button_row{
+      #fixed_button_row {
         position: sticky;
         top: 0;
         padding: 5px;
         z-index: 10;
         margin-left: 5%;
-    }
-
-        </style>
-    </head>
-    <body onload="brython()"></body>
+      }
+    </style>
+  </head>
+  <body onload="brython()"></body>
 </html>
