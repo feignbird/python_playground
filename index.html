@@ -46,6 +46,7 @@
       href="https://attentionverse-data.s3.ap-south-1.amazonaws.com/attentionverse_logo.jpeg"
     />
     <link rel="stylesheet" href="https://www.brython.info/tests/console.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <script
       type="text/javascript"
@@ -504,150 +505,150 @@ editor_font_size = 16
 console_font_size = 16
 
 try:
-    editor = window.ace.edit("editor")
-    editor.setTheme("ace/theme/solarized_light")
-    editor.session.setMode("ace/mode/python")
-    editor.setFontSize(editor_font_size)
-    try:
-        editor.setKeyboardHandler("ace/keyboard/vscode")
-    except:
-        print("vs-code shortcut keys may not work correctly.")
-    editor.focus()
+	editor = window.ace.edit("editor")
+	editor.setTheme("ace/theme/solarized_light")
+	editor.session.setMode("ace/mode/python")
+	editor.setFontSize(editor_font_size)
+	try:
+		editor.setKeyboardHandler("ace/keyboard/vscode")
+	except:
+		print("vs-code shortcut keys may not work correctly.")
+	editor.focus()
 
-    editor.setOptions({
-        'enableLiveAutocompletion': True,
-        'highlightActiveLine': False,
-        'highlightSelectedWord': True
-    })
+	editor.setOptions({
+		'enableLiveAutocompletion': True,
+		'highlightActiveLine': False,
+		'highlightSelectedWord': True
+	})
 except:
-    editor = html.TEXTAREA(rows=20, cols=70)
-    document["editor"] <= editor
-    def get_value(): return editor.value
-    def set_value(x): editor.value = x
-    editor.getValue = get_value
-    editor.setValue = set_value
-    has_ace = False
+	editor = html.TEXTAREA(rows=20, cols=70)
+	document["editor"] <= editor
+	def get_value(): return editor.value
+	def set_value(x): editor.value = x
+	editor.getValue = get_value
+	editor.setValue = set_value
+	has_ace = False
 
 def theme_option_code(style = {}):
-    theme_list = ['ambiance', 'chaos', 'chrome', 'cloud9_day', 'cloud9_night', 'cloud9_night_low_color', 'clouds', 'clouds_midnight', 'cobalt',
-    'crimson_editor', 'daw', 'dracula', 'dreamweaver', 'eclipse', 'github', 'gob', 'gruvbox', 'gruvbox_dark_hard', 'gruvbox_light_hard', 'idle_fingers',
-    'iplastic', 'katzenmilch', 'kr_theme', 'kuroir', 'merbivore', 'merbivore_soft', 'mono_industrial', 'monoka', 'nord_dark', 'one_dark', 'pastel_on_dark',
-    'solarized_dark', 'sqlserver', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue', 'tomorrow_night_bright', 'tomorrow_night_eighties',
-    'twilight', 'vibrant_ink', 'xcode']
-    theme_select_ele = html.SELECT(id = "theme_select_input", style = style)
-    for theme in theme_list:
-        theme_select_ele <= html.OPTION(theme, value = "ace/theme/"+theme)
-    return theme_select_ele
+	theme_list = ['ambiance', 'chaos', 'chrome', 'cloud9_day', 'cloud9_night', 'cloud9_night_low_color', 'clouds', 'clouds_midnight', 'cobalt',
+	'crimson_editor', 'daw', 'dracula', 'dreamweaver', 'eclipse', 'github', 'gob', 'gruvbox', 'gruvbox_dark_hard', 'gruvbox_light_hard', 'idle_fingers',
+	'iplastic', 'katzenmilch', 'kr_theme', 'kuroir', 'merbivore', 'merbivore_soft', 'mono_industrial', 'monoka', 'nord_dark', 'one_dark', 'pastel_on_dark',
+	'solarized_dark', 'sqlserver', 'terminal', 'textmate', 'tomorrow', 'tomorrow_night', 'tomorrow_night_blue', 'tomorrow_night_bright', 'tomorrow_night_eighties',
+	'twilight', 'vibrant_ink', 'xcode']
+	theme_select_ele = html.SELECT(id = "theme_select_input", style = style)
+	for theme in theme_list:
+		theme_select_ele <= html.OPTION(theme, value = "ace/theme/"+theme)
+	return theme_select_ele
 
 document['editor-button-bar'].appendChild(theme_option_code(style={'display':'none', "width":"17.5px", "border":"1px solid gray", "border-radius":"20%"}))
 document['console'].style.fontSize = "16px"
 
 current_code = ""
 def reset():
-    global current_code
-    initial_url_state = window.location.href
-    if "?code" in document.query:
-        code = document.query.getlist("code")[0]
-        editor.setValue(code)
-    elif "#" in initial_url_state:
-        url_encoded_data_str = initial_url_state.split("#")[1]
-        url_encoded_data_str = url_encoded_data_str.strip().strip("data=")
-        data_str = window.decodeURIComponent(url_encoded_data_str.replace("+", " "))
-        #code_dict = dict(ast.literal_eval(data_str))
-        code_dict = json.loads(data_str)
-        current_code = code_dict['code']
-        editor.setValue(current_code)
-    else:
-        editor.setValue(current_code)
+	global current_code
+	initial_url_state = window.location.href
+	if "?code" in document.query:
+		code = document.query.getlist("code")[0]
+		editor.setValue(code)
+	elif "#" in initial_url_state:
+		url_encoded_data_str = initial_url_state.split("#")[1]
+		url_encoded_data_str = url_encoded_data_str.strip().strip("data=")
+		data_str = window.decodeURIComponent(url_encoded_data_str.replace("+", " "))
+		#code_dict = dict(ast.literal_eval(data_str))
+		code_dict = json.loads(data_str)
+		current_code = code_dict['code']
+		editor.setValue(current_code)
+	else:
+		editor.setValue(current_code)
 
 
 class cOutput:
-    encoding = 'utf-8'
+	encoding = 'utf-8'
 
-    def __init__(self):
-        self.cons = document["console"]
-        self.buf = ''
+	def __init__(self):
+		self.cons = document["console"]
+		self.buf = ''
 
-    def write(self, data):
-        self.buf += str(data)
+	def write(self, data):
+		self.buf += str(data)
 
-    def flush(self):
-        self.cons.value += self.buf
-        self.buf = ''
+	def flush(self):
+		self.cons.value += self.buf
+		self.buf = ''
 
-    def __len__(self):
-        return len(self.buf)
+	def __len__(self):
+		return len(self.buf)
 
 if "console" in document:
-    cOut = cOutput()
-    sys.stdout = cOut
-    sys.stderr = cOut
+	cOut = cOutput()
+	sys.stdout = cOut
+	sys.stderr = cOut
 
 # run a script, in global namespace if in_globals is True
 output = ''
 def run(*args):
-    global output
-    document["console"].value = ''
-    src = editor.getValue()
-    console.log("src at editor.getValue():", src)
-    t0 = time.perf_counter()
-    try:
-        ns = {'__name__':'__main__'}
-        console.log("src:", src, "ns:", ns)
-        exec(src, ns)
-        state = 1
-    except Exception as exc:
-        traceback.print_exc(file=sys.stderr)
-        state = 0
-    sys.stdout.flush()
-    output = document["console"].value
+	global output
+	document["console"].value = ''
+	src = editor.getValue()
+	console.log("src at editor.getValue():", src)
+	t0 = time.perf_counter()
+	try:
+		ns = {'__name__':'__main__'}
+		console.log("src:", src, "ns:", ns)
+		exec(src, ns)
+		state = 1
+	except Exception as exc:
+		traceback.print_exc(file=sys.stderr)
+		state = 0
+	sys.stdout.flush()
+	output = document["console"].value
 
-    print('<completed in %6.2f ms>' % ((time.perf_counter() - t0) * 1000.0))
-    return state
+	print('<completed in %6.2f ms>' % ((time.perf_counter() - t0) * 1000.0))
+	return state
 
 
 @bind(editor, 'input')
 def url_code_appender(e):
-    location_obj = document.location
-    code_dict = {"code" : editor.getValue()}
-    location_obj.hash = "data=" + window.encodeURIComponent(json.dumps(code_dict)).replace("'", "%27").replace("\"", "%22")
+	location_obj = document.location
+	code_dict = {"code" : editor.getValue()}
+	location_obj.hash = "data=" + window.encodeURIComponent(json.dumps(code_dict)).replace("'", "%27").replace("\"", "%22")
 
 
-@bind("#font-increment", 'click')
+@bind("#editor-font-increment", 'click')
 def increase_editor_font_size(e):
-    global editor_font_size
-    if editor_font_size >= 5 and editor_font_size < 50:
-        editor.setFontSize(editor_font_size+1)
-        editor_font_size = editor_font_size + 1
+	global editor_font_size
+	if editor_font_size >= 5 and editor_font_size < 50:
+		editor.setFontSize(editor_font_size+1)
+		editor_font_size = editor_font_size + 1
 
 
-@bind("#font-decrement", 'click')
+@bind("#editor-font-decrement", 'click')
 def decrease_editor_font_size(e):
-    global editor_font_size
-    if editor_font_size > 5:
-        editor.setFontSize(editor_font_size-1)
-        editor_font_size = editor_font_size - 1
+	global editor_font_size
+	if editor_font_size > 5:
+		editor.setFontSize(editor_font_size-1)
+		editor_font_size = editor_font_size - 1
 
 
 @bind("#change-theme", 'click')
 def theme_dropdown_show(e):
-    if document['theme_select_input'].style.display == "none":
-        document['theme_select_input'].style.display = "inline"
-    else:
-        document['theme_select_input'].style.display = "none"
+	if document['theme_select_input'].style.display == "none":
+		document['theme_select_input'].style.display = "inline"
+	else:
+		document['theme_select_input'].style.display = "none"
 
 @bind("#theme_select_input", 'change')
 def theme_dropdown_show(e):
-    editor.setTheme(str(e.target.value).strip())
+	editor.setTheme(str(e.target.value).strip())
 
 
 @bind("#console-font-increment", 'click')
 def increase_console_font_size(e):
-    document['console'].style.fontSize = str(int(document['console'].style.fontSize.replace("px", "").strip()) + 1)+"px"
+	document['console'].style.fontSize = str(int(document['console'].style.fontSize.replace("px", "").strip()) + 1)+"px"
 
 @bind("#console-font-decrement", 'click')
 def decrease_console_font_size(e):
-    document['console'].style.fontSize = str(int(document['console'].style.fontSize.replace("px", "").strip()) - 1)+"px"
+	document['console'].style.fontSize = str(int(document['console'].style.fontSize.replace("px", "").strip()) - 1)+"px"
 
 
 
@@ -673,11 +674,11 @@ reset()
         elem.select();
         document.execCommand("copy");
         document.body.removeChild(elem);
-        document.getElementById("share-code").innerHTML = "Link copied";
+        document.getElementById("share-code").innerHTML = "<i class=\"fa-solid fa-thumbs-up\"></i>";
         setTimeout(makeShareCodeOriginal, 3000);
       }
       function makeShareCodeOriginal() {
-        document.getElementById("share-code").innerHTML = "Share code";
+        document.getElementById("share-code").innerHTML = "<i class=\"fa-solid fa-share\"></i>";
       }
     </script>
 
@@ -687,7 +688,6 @@ reset()
         background-color: darkgray;
         top: 0;
         left: 0;
-        margin: 0;
         height: 90vh;
         justify-content: center;
         align-items: center;
@@ -713,8 +713,8 @@ reset()
 
       button {
         display: inline-block;
-        padding: 10px 18px;
-        margin-right: 1%;
+		width: 100%;
+		height: 100%;
         font-size: 18px;
         cursor: pointer;
         text-align: center;
@@ -741,8 +741,22 @@ reset()
         display: flex;
         position: sticky;
         z-index: 5;
-        margin: 2%;
+		margin-bottom: 3%;
+		margin-top: 1%;
+		justify-content: flex-start;
+		line-height: 30px;
       }
+	  #console-button-bar > div,
+	  #editor-button-bar > div{
+		width: 100%;
+		height: 100%;
+		margin: 5px;
+	  }
+	  #console-button-bar > div {
+		width: 20%;
+		/* flex-grow: 1; */
+	  }
+
       #console-div {
         width: 100%;
         height: 100%;
@@ -772,24 +786,36 @@ reset()
           width: 95vw;
         }
       }
+      @media only screen and (max-width: 450px) {
+        #editor-container {
+          flex-direction: row;
+        }
+        #editor-button-bar {
+          flex-direction: column;
+          width: 10%;
+        }
+		#editor-button-bar, #console-button-bar{
+			margin-right:3%
+		}
+      }
     </style>
   </head>
   <body onload="brython()">
     <div id="playground-container">
       <div id="editor-container">
         <div id="editor-button-bar">
-          <button id="run">Run</button>
-          <button id="share-code" onclick="copyUrl()">Share code</button>
-          <button id="editor-font-increment">E+</button>
-          <button id="editor-font-decrement">E-</button>
-          <button id="change-theme">Editor theme</button>
+          <div><button id="run"><i class="fa-solid fa-play"></i></button></div>
+          <div><button id="share-code" onclick="copyUrl()"><i class="fa-solid fa-share"></i></button></div>
+          <div><button id="editor-font-increment"><i class="fa-solid fa-plus"></i></button></div>
+		  <div><button id="editor-font-decrement"><i class="fa-solid fa-minus"></i></button></div>
+		  <div><button id="change-theme"><i class="fa-solid fa-palette"></i></button></div>
         </div>
         <div id="editor"></div>
       </div>
       <div id="console-container">
         <div id="console-button-bar">
-          <button id="console-font-increment">C+</button>
-          <button id="console-font-decrement">C-</button>
+          <div><button id="console-font-increment"><i class="fa-solid fa-plus"></i></button></div>
+          <div><button id="console-font-decrement"><i class="fa-solid fa-minus"></i></button></div>
         </div>
         <div id="console-div">
           <textarea id="console"></textarea>
