@@ -543,7 +543,7 @@ def theme_option_code(style = {}):
 document['editor-button-bar'].appendChild(theme_option_code(style={'display':'none', "width":"17.5px", "border":"1px solid gray", "border-radius":"20%"}))
 document['console'].style.fontSize = "16px"
 
-current_code = ""
+current_code = "for x in range(10):\n\tprint('hello world %d' % x)"
 def reset():
 	global current_code
 	initial_url_state = window.location.href
