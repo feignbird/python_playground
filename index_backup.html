@@ -491,42 +491,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/keybinding-vscode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.7.1/ext-searchbox.min.js"></script>
 
-    <script type="text/python3">
-from browser import document, window, console, alert, bind, html
-import browser.widgets.dialog as dialog
+    <script type="text/python3" id="tests_editor">
+from browser import document as doc, window
+from browser import html
+
 import sys
 import time
 import binascii
 import ast
 import json
+
 import tb as traceback
-editor_font_size = 16
-console_font_size = 16
+#import javascript
 
-try:
-    editor = window.ace.edit("editor")
-    editor.setTheme("ace/theme/solarized_light")
-    editor.session.setMode("ace/mode/python")
-    editor.setFontSize(editor_font_size)
-    try:
-        editor.setKeyboardHandler("ace/keyboard/vscode")
-    except:
-        print("vs-code shortcut keys may not work correctly.")
-    editor.focus()
 
-    editor.setOptions({
-        'enableLiveAutocompletion': True,
-        'highlightActiveLine': False,
-        'highlightSelectedWord': True
-    })
-except:
-    editor = html.TEXTAREA(rows=20, cols=70)
-    document["editor"] <= editor
-    def get_value(): return editor.value
-    def set_value(x): editor.value = x
-    editor.getValue = get_value
-    editor.setValue = set_value
-    has_ace = False
+from browser import console, document, window, alert, bind, html
+import browser.widgets.dialog as dialog
+
+
+def get_device_type():
+    ua = window.navigator.userAgent
+    if "android" in ua.lower():
+        return "android"
+    elif "iphone" in ua.lower():
+        return "iphone"
+    elif "ipad" in ua.lower():
+        return "ipad"
+    else:
+        return "computer"
+
 
 def theme_option_code(style = {}):
     theme_list = ['ambiance', 'chaos', 'chrome', 'cloud9_day', 'cloud9_night', 'cloud9_night_low_color', 'clouds', 'clouds_midnight', 'cobalt',
@@ -539,10 +532,175 @@ def theme_option_code(style = {}):
         theme_select_ele <= html.OPTION(theme, value = "ace/theme/"+theme)
     return theme_select_ele
 
-document['editor-button-bar'].appendChild(theme_option_code(style={'display':'none', "width":"17.5px", "border":"1px solid gray", "border-radius":"20%"}))
-document['console'].style.fontSize = "16px"
 
-current_code = ""
+
+def make_structure_for_desktop_computers():
+    tr_menu_buttons = html.DIV(id = "fixed_button_row")
+    button_wrapper = html.DIV()
+
+    run_button = html.BUTTON(" ▶ Run", id = "run")
+#    show_console_button = html.BUTTON("Python", id = "show_console")
+#    show_js_button = html.BUTTON("Javascript", id = "show_js")
+    share_code_button = html.BUTTON('Share code', id = "share_code", onclick="copyUrl()")
+
+    # font
+    increase_font = html.BUTTON('A+', id = "increase_font_size")
+    decrease_font = html.BUTTON('A-', id = "decrease_font_size")
+
+    #theme
+    change_theme = html.BUTTON("theme", id = "change_editor_theme")
+    theme_dropdown = theme_option_code(style = {'display':"none"})
+
+    button_wrapper <= run_button
+    button_wrapper <= share_code_button
+    button_wrapper <= increase_font
+    button_wrapper <= decrease_font
+    button_wrapper <= change_theme
+    button_wrapper <= theme_dropdown
+
+    tr_menu_buttons <= button_wrapper
+
+    document.body.appendChild(tr_menu_buttons)
+
+    table_ele = html.TABLE(id = "container")
+    # second row
+    tr_editor_area = html.TR()
+    editor_cell = html.TD((html.DIV(id = 'editor', style={"width":"100%"})), id = "left")
+    separator_cell = html.TD(id = 'separator')
+    console_cell = html.TD((html.TEXTAREA(id="console", style={'background-color':"black", 'color':'azure'}, autocomplete="off")), id = "right")
+
+    tr_editor_area <= editor_cell
+    tr_editor_area <= separator_cell
+    tr_editor_area <= console_cell
+
+
+#    table_ele <= tr_menu_buttons
+    table_ele <= tr_editor_area
+
+    return table_ele
+
+
+
+def make_structure_for_mobile_computers():
+    table_ele = html.TABLE(id = "container", style={'width':"100%"})
+
+    # first row
+    tr_menu_buttons = html.TR()
+    button_group_cell = html.TD()
+    empty_cells = (html.TD() for x in range(2))
+
+    button_styles = {
+        "display": "inline-block",
+        "padding": "10px 18px",
+        "margin-right": "1%",
+        "margin-bottom": "1%",
+        "font-size": "35px",
+        "cursor": "pointer",
+        "text-align": "center",
+        "text-decoration": "none",
+        "outline": "none",
+        "color": "#fff",
+        "background-color": "#000000",
+        "border": "none",
+        "border-radius": "15px",
+        "box-shadow": "0 4px #999"
+    }
+
+    run_button = html.BUTTON(" ▶ Run", id = "run", style=button_styles)
+#    show_console_button = html.BUTTON("Python", id = "show_console", style = button_styles)
+#    show_js_button = html.BUTTON("Javascript", id = "show_js", style = button_styles)
+    share_code_button = html.BUTTON('Share code', id = "share_code", onclick="copyUrl()", style = button_styles)
+    # font
+    increase_font = html.BUTTON('A+', id = "increase_font_size", style = button_styles)
+    decrease_font = html.BUTTON('A-', id = "decrease_font_size", style = button_styles)
+
+    #theme
+    change_theme = html.BUTTON("theme", id = "change_editor_theme", style = button_styles)
+    theme_dropdown = theme_option_code(style = {'display':"none", 'font-size':"35px"})
+
+    button_group_cell <= run_button
+#    button_group_cell <= show_console_button
+#    button_group_cell <= show_js_button
+    button_group_cell <= share_code_button
+    # font buttons appended
+    button_group_cell <= increase_font
+    button_group_cell <= decrease_font
+    # theme
+    button_group_cell <= change_theme
+    button_group_cell <= theme_dropdown
+
+    tr_menu_buttons <= button_group_cell
+    tr_menu_buttons <= empty_cells
+
+
+    # second row
+    editor_row = html.TR(html.TD((html.DIV(id = 'editor', style={'width':"100%", 'font-size':"40px"})), id='left', style = {'height':"49%"}, colspan = "3"))
+
+    # third row
+    separator_row = html.TR(html.TD(id='separator', style={'height':"1%"}, colspan = "3"))
+
+    # fourth row
+    textarea_row = html.TR(html.TD(html.TEXTAREA(id='console', style={'background-color':'black', 'color':'azure'}, autocomplete='off'), id='right', colspan = "3"))
+
+    table_ele <= tr_menu_buttons
+    table_ele <= editor_row
+    table_ele <= separator_row
+    table_ele <= textarea_row
+    return table_ele
+
+
+
+if get_device_type() in ['android', 'iphone']:
+    document.body <= make_structure_for_mobile_computers()
+    font_size = 30 # in pixels
+else:
+    document.body <= make_structure_for_desktop_computers()
+    font_size = 16 # in pixels
+
+
+
+# set height of container to 75% of screen
+_height = document.documentElement.clientHeight
+_s = document['container']
+_s.style.height = '%spx' % int(_height * 0.85)
+
+
+
+has_ace = True
+try:
+    editor = window.ace.edit("editor")
+    editor.setTheme("ace/theme/solarized_light")
+    editor.session.setMode("ace/mode/python")
+    editor.setFontSize(font_size)
+    try:
+        editor.setKeyboardHandler("ace/keyboard/vscode")
+    except:
+        print("error")
+    editor.focus()
+
+    editor.setOptions({
+    'enableLiveAutocompletion': True,
+    'highlightActiveLine': False,
+    'highlightSelectedWord': True
+    })
+except:
+    from browser import html
+    editor = html.TEXTAREA(rows=20, cols=70)
+    document["editor"] <= editor
+    def get_value(): return editor.value
+    def set_value(x): editor.value = x
+    editor.getValue = get_value
+    editor.setValue = set_value
+    has_ace = False
+
+if hasattr(window, 'localStorage'):
+    from browser.local_storage import storage
+else:
+    storage = None
+
+
+current_code = "for x in range(10):\n\tprint(x)"
+
 def reset():
     global current_code
     initial_url_state = window.location.href
@@ -583,17 +741,26 @@ if "console" in document:
     sys.stdout = cOut
     sys.stderr = cOut
 
-# run a script, in global namespace if in_globals is True
+
 output = ''
+
+
+#def show_console(ev):
+#    document["console"].value = output
+#    document["console"].cols = 60
+
+
+# run a script, in global namespace if in_globals is True
 def run(*args):
     global output
     document["console"].value = ''
     src = editor.getValue()
-    console.log("src at editor.getValue():", src)
+
     t0 = time.perf_counter()
+    #if "import turtle" in src:
+    #    src = 'from browser import document\ntry:\n\tdocument[\'turtle-canvas-wrapper\'].remove()\n\tfrom turtle import restart\n\trestart()\nexcept:\n\tpass\n\n' + src
     try:
         ns = {'__name__':'__main__'}
-        console.log("src:", src, "ns:", ns)
         exec(src, ns)
         state = 1
     except Exception as exc:
@@ -613,45 +780,47 @@ def url_code_appender(e):
     location_obj.hash = "data=" + window.encodeURIComponent(json.dumps(code_dict)).replace("'", "%27").replace("\"", "%22")
 
 
-@bind("#font-increment", 'click')
+#def show_js(ev):
+#    src = editor.getValue()
+#    document["console"].value = javascript.py2js(src, '__main__')
+
+
+
+
+@bind("#increase_font_size", 'click')
 def increase_editor_font_size(e):
-    global editor_font_size
-    if editor_font_size >= 5 and editor_font_size < 50:
-        editor.setFontSize(editor_font_size+1)
-        editor_font_size = editor_font_size + 1
+    global font_size
+    if font_size >= 5 and font_size < 50:
+        editor.setFontSize(font_size+1)
+        font_size = font_size + 1
 
 
-@bind("#font-decrement", 'click')
+@bind("#decrease_font_size", 'click')
 def decrease_editor_font_size(e):
-    global editor_font_size
-    if editor_font_size > 5:
-        editor.setFontSize(editor_font_size-1)
-        editor_font_size = editor_font_size - 1
+    global font_size
+    if font_size > 5:
+        editor.setFontSize(font_size-1)
+        font_size = font_size - 1
 
 
-@bind("#change-theme", 'click')
+@bind("#change_editor_theme", 'click')
 def theme_dropdown_show(e):
-    if document['theme_select_input'].style.display == "none":
-        document['theme_select_input'].style.display = "inline"
+    if doc['theme_select_input'].style.display == "none":
+        doc['theme_select_input'].style.display = "inline"
     else:
-        document['theme_select_input'].style.display = "none"
+        doc['theme_select_input'].style.display = "none"
 
 @bind("#theme_select_input", 'change')
 def theme_dropdown_show(e):
     editor.setTheme(str(e.target.value).strip())
 
+# next functions are defined in editor.py
+#doc['show_js'].bind('click', show_js)
 
-@bind("#console-font-increment", 'click')
-def increase_console_font_size(e):
-    document['console'].style.fontSize = str(int(document['console'].style.fontSize.replace("px", "").strip()) + 1)+"px"
+# Create a lambda around editor.run() so that the event object is not passed to it
+doc['run'].bind('click',lambda *args: run())
+#doc['show_console'].bind('click', show_console)
 
-@bind("#console-font-decrement", 'click')
-def decrease_console_font_size(e):
-    document['console'].style.fontSize = str(int(document['console'].style.fontSize.replace("px", "").strip()) - 1)+"px"
-
-
-
-document['run'].bind('click',lambda *args: run())
 reset()
     </script>
 
@@ -673,45 +842,26 @@ reset()
         elem.select();
         document.execCommand("copy");
         document.body.removeChild(elem);
-        document.getElementById("share-code").innerHTML = "Link copied";
+        document.getElementById("share_code").innerHTML = "Link copied";
         setTimeout(makeShareCodeOriginal, 3000);
       }
       function makeShareCodeOriginal() {
-        document.getElementById("share-code").innerHTML = "Share code";
+        document.getElementById("share_code").innerHTML = "Share code";
       }
     </script>
 
     <style>
       body {
-        display: flex;
         background-color: darkgray;
-        top: 0;
-        left: 0;
-        margin: 0;
-        height: 90vh;
-        justify-content: center;
-        align-items: center;
       }
 
-      #playground-container {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #console-container,
-      #editor-container {
-        display: flex;
-        flex-direction: column;
-        margin: 0.5%;
-        width: 100%;
-        height: 100%;
-      }
-
-      button {
+      #change_editor_theme,
+      #increase_font_size,
+      #decrease_font_size,
+      #show_console,
+      #show_js,
+      #share_code,
+      #run {
         display: inline-block;
         padding: 10px 18px;
         margin-right: 1%;
@@ -726,75 +876,37 @@ reset()
         border-radius: 15px;
         box-shadow: 0 4px #999;
       }
-      button:active {
+
+      #change_editor_theme:active,
+      #increase_font_size:active,
+      #decrease_font_size:active,
+      #show_console:active,
+      #show_js:active,
+      #share_code:active,
+      #run:active {
         background-color: #3e8e41;
         box-shadow: 0 2px #666;
         transform: translateY(2px);
       }
-      button:hover {
+
+      #change_editor_theme:hover,
+      #increase_font_size:hover,
+      #decrease_font_size:hover,
+      #show_console:hover,
+      #show_js:hover,
+      #share_code:hover,
+      #run:hover {
         background-color: #3e8e41;
       }
 
-      #console-button-bar,
-      #editor-button-bar {
-        top: 0;
-        display: flex;
+      #fixed_button_row {
         position: sticky;
-        z-index: 5;
-        margin: 2%;
-      }
-      #console-div {
-        width: 100%;
-        height: 100%;
-      }
-      #console {
-        width: 100%;
-        height: 100%;
-        color: white;
-        background-color: black;
-        border: 0;
-        border-radius: 1%;
-      }
-      #editor {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        border-radius: 1%;
-      }
-      /* Extra small devices (phones, 600px and down) */
-      @media only screen and (max-width: 800px) {
-        #playground-container {
-          flex-direction: column;
-          width: 95vw;
-        }
-        #editor-button-bar {
-          align-self: auto;
-          width: 95vw;
-        }
+        top: 0;
+        padding: 5px;
+        z-index: 10;
+        margin-left: 5%;
       }
     </style>
   </head>
-  <body onload="brython()">
-    <div id="playground-container">
-      <div id="editor-container">
-        <div id="editor-button-bar">
-          <button id="run">Run</button>
-          <button id="share-code" onclick="copyUrl()">Share code</button>
-          <button id="editor-font-increment">E+</button>
-          <button id="editor-font-decrement">E-</button>
-          <button id="change-theme">Editor theme</button>
-        </div>
-        <div id="editor"></div>
-      </div>
-      <div id="console-container">
-        <div id="console-button-bar">
-          <button id="console-font-increment">C+</button>
-          <button id="console-font-decrement">C-</button>
-        </div>
-        <div id="console-div">
-          <textarea id="console"></textarea>
-        </div>
-      </div>
-    </div>
-  </body>
+  <body onload="brython()"></body>
 </html>
