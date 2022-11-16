@@ -100,19 +100,31 @@ ACE_EDITOR_VERSION = "1.7.1"
 editor_font_size = 16
 console_font_size = 16
 document['console'].style.fontSize = "16px"
+THEMES_IMPORTED = False
+
+theme_list = ["ace/theme/chrome","ace/theme/clouds","ace/theme/crimson_editor","ace/theme/dawn",
+	"ace/theme/dreamweaver","ace/theme/eclipse","ace/theme/github","ace/theme/iplastic",
+	"ace/theme/solarized_light","ace/theme/textmate","ace/theme/tomorrow","ace/theme/xcode","ace/theme/kuroir",
+	"ace/theme/katzenmilch","ace/theme/sqlserver","ace/theme/ambiance","ace/theme/chaos",
+	"ace/theme/clouds_midnight","ace/theme/dracula","ace/theme/cobalt","ace/theme/gruvbox",
+	"ace/theme/gob","ace/theme/idle_fingers","ace/theme/kr_theme","ace/theme/merbivore","ace/theme/merbivore_soft",
+	"ace/theme/mono_industrial","ace/theme/monokai","ace/theme/nord_dark","ace/theme/one_dark",
+	"ace/theme/pastel_on_dark","ace/theme/solarized_dark","ace/theme/terminal","ace/theme/tomorrow_night",
+	"ace/theme/tomorrow_night_blue","ace/theme/tomorrow_night_bright","ace/theme/tomorrow_night_eighties",
+	"ace/theme/twilight","ace/theme/vibrant_ink"]
 
 try:
-  editor = window.ace.edit("editor")
-  editor.setTheme("ace/theme/monokai")
-  editor.session.setMode("ace/mode/python")
-  editor.setFontSize(editor_font_size)
-  editor.setKeyboardHandler("ace/keyboard/vscode")
-  editor.focus()
-  editor.setOptions({
-		'enableLiveAutocompletion': True,
-		'highlightActiveLine': False,
-		'highlightSelectedWord': True
-	})
+	editor = window.ace.edit("editor")
+	editor.setTheme("ace/theme/monokai")
+	editor.session.setMode("ace/mode/python")
+	editor.setFontSize(editor_font_size)
+	editor.setKeyboardHandler("ace/keyboard/vscode")
+	editor.focus()
+	editor.setOptions({
+			'enableLiveAutocompletion': True,
+			'highlightActiveLine': False,
+			'highlightSelectedWord': True
+		})
 except:
 	editor = html.TEXTAREA(rows=20, cols=70)
 	document["editor"] <= editor
@@ -122,13 +134,18 @@ except:
 	editor.setValue = set_value
 	has_ace = False
 
-def maintain_theme_source(theme_path:list = ""):
-  theme_name = theme_path.split("/")[-1]
-  theme_source_url = f"https://cdnjs.cloudflare.com/ajax/libs/ace/{ACE_EDITOR_VERSION}/theme-{theme_name}.min.js"
-  for script_element in document.querySelectorAll('script'):
-    if str(script_element.src).strip() == theme_source_url.strip(): return False
-  document.head <= html.SCRIPT(src=theme_source_url)
-  return True
+def get_theme_script_element(theme_path:list = ""):
+	theme_name = theme_path.split("/")[-1]
+	theme_source_url = f"https://cdnjs.cloudflare.com/ajax/libs/ace/{ACE_EDITOR_VERSION}/theme-{theme_name}.min.js"
+	for script_element in document.querySelectorAll('script'):
+		if str(script_element.src).strip() == theme_source_url.strip(): return None
+	return html.SCRIPT(src=theme_source_url)
+
+def add_themes():
+	for theme_path in theme_list:
+		theme_element = get_theme_script_element(theme_path)
+		if theme_element:
+			document.head <= theme_element
 
 current_code = """\
 # Welcome to pyground!
@@ -228,16 +245,22 @@ def decrease_editor_font_size(e):
 
 @bind("#change-theme", 'click')
 def theme_dropdown_show(e):
-	if document['theme_select_input'].style.display == "none":
-		document['theme_select_input'].style.display = "flex"
-	else:
-		document['theme_select_input'].style.display = "none"
+	global THEMES_IMPORTED
+	if not THEMES_IMPORTED:
+		add_themes()
+		THEMES_IMPORTED = True
+	if not window.navigator.onLine:
+		alert("Themes could not be selected as your Internet not seems to be working.")
+	elif THEMES_IMPORTED:
+		if document['theme_select_input'].style.display == "none":
+			document['theme_select_input'].style.display = "flex"
+		else:
+			document['theme_select_input'].style.display = "none"		
 
 @bind("#theme_select_input", 'change')
 def theme_dropdown_show(e):
-  maintain_theme_source(str(e.target.value).strip())
-  def set_editor_theme(): editor.setTheme(str(e.target.value).strip())
-  timer.set_timeout(set_editor_theme, 10)
+	def set_editor_theme(): editor.setTheme(str(e.target.value).strip())
+	timer.set_timeout(set_editor_theme, 100)
 
 
 @bind("#console-font-increment", 'click')
@@ -281,6 +304,11 @@ reset()
     </script>
 
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
         display: flex;
         background-color: darkgray;
@@ -366,6 +394,8 @@ reset()
         background-color: black;
         border: 0;
         border-radius: 1%;
+        padding-left: 0.2em;
+        padding-top: 0.2em;
       }
       #editor {
         width: 100%;
@@ -404,11 +434,11 @@ reset()
     <div id="playground-container">
       <div id="editor-container">
         <div id="editor-button-bar">
-          <div><button id="run"><i class="fa-solid fa-play"></i></button></div>
-          <div><button id="share-code" onclick="copyUrl()"><i class="fa-solid fa-share"></i></button></div>
-          <div><button id="editor-font-increment"><i class="fa-solid fa-plus"></i></button></div>
-    		  <div><button id="editor-font-decrement"><i class="fa-solid fa-minus"></i></button></div>
-		      <div><button id="change-theme"><i class="fa-solid fa-palette"></i></button></div>
+			<div><button id="run"><i class="fa-solid fa-play"></i></button></div>
+			<div><button id="share-code" onclick="copyUrl()"><i class="fa-solid fa-share"></i></button></div>
+			<div><button id="editor-font-increment"><i class="fa-solid fa-plus"></i></button></div>
+			<div><button id="editor-font-decrement"><i class="fa-solid fa-minus"></i></button></div>
+			<div><button id="change-theme"><i class="fa-solid fa-palette"></i></button></div>
           <select id="theme_select_input" style="display: none;"><optgroup label="Bright"><option value="ace/theme/chrome">Chrome</option><option value="ace/theme/clouds">Clouds</option><option value="ace/theme/crimson_editor">Crimson Editor</option><option value="ace/theme/dawn">Dawn</option><option value="ace/theme/dreamweaver">Dreamweaver</option><option value="ace/theme/eclipse">Eclipse</option><option value="ace/theme/github">GitHub</option><option value="ace/theme/iplastic">IPlastic</option><option value="ace/theme/solarized_light">Solarized Light</option><option value="ace/theme/textmate">TextMate</option><option value="ace/theme/tomorrow">Tomorrow</option><option value="ace/theme/xcode">XCode</option><option value="ace/theme/kuroir">Kuroir</option><option value="ace/theme/katzenmilch">KatzenMilch</option><option value="ace/theme/sqlserver">SQL Server</option></optgroup><optgroup label="Dark"><option value="ace/theme/ambiance">Ambiance</option><option value="ace/theme/chaos">Chaos</option><option value="ace/theme/clouds_midnight">Clouds Midnight</option><option value="ace/theme/dracula">Dracula</option><option value="ace/theme/cobalt">Cobalt</option><option value="ace/theme/gruvbox">Gruvbox</option><option value="ace/theme/gob">Green on Black</option><option value="ace/theme/idle_fingers">idle Fingers</option><option value="ace/theme/kr_theme">krTheme</option><option value="ace/theme/merbivore">Merbivore</option><option value="ace/theme/merbivore_soft">Merbivore Soft</option><option value="ace/theme/mono_industrial">Mono Industrial</option><option value="ace/theme/monokai">Monokai</option><option value="ace/theme/nord_dark">Nord Dark</option><option value="ace/theme/one_dark">One Dark</option><option value="ace/theme/pastel_on_dark">Pastel on dark</option><option value="ace/theme/solarized_dark">Solarized Dark</option><option value="ace/theme/terminal">Terminal</option><option value="ace/theme/tomorrow_night">Tomorrow Night</option><option value="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</option><option value="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</option><option value="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</option><option value="ace/theme/twilight">Twilight</option><option value="ace/theme/vibrant_ink">Vibrant Ink</option></optgroup></select>
         </div>
         <div id="editor"></div>
